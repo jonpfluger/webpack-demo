@@ -8,3 +8,5 @@ export function changeHeaderColor() {
     headerEl.style.backgroundColor = 'green'
   }
 }
+
+headerEl.style.backgroundColor = 'green'

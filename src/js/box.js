@@ -1,10 +1,16 @@
 import { boxEl } from "./elements"
+import blueRobotImage from '../images/blue-robot.png'
+import yellowRobotImage from '../images/yellow-robot.png'
 
 export function changeBoxColor() {
-  const currBgColor = boxEl.style.backgroundColor
-  if (currBgColor === 'yellow') {
-    boxEl.style.backgroundColor = 'blue'
+  if (boxEl.dataset.color === 'yellow') {
+    boxEl.src = blueRobotImage
+    boxEl.dataset.color = 'blue'
   } else {
-    boxEl.style.backgroundColor = 'yellow'
+    boxEl.src = yellowRobotImage
+    boxEl.dataset.color = 'yellow'
   }
 }
+
+boxEl.dataset.color = 'yellow'
+boxEl.src = yellowRobotImage
