@@ -1,1 +1,88 @@
-(()=>{"use strict";var e={};e.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(e){if("object"==typeof window)return window}}(),(()=>{var t;e.g.importScripts&&(t=e.g.location+"");var r=e.g.document;if(!t&&r&&(r.currentScript&&(t=r.currentScript.src),!t)){var c=r.getElementsByTagName("script");if(c.length)for(var o=c.length-1;o>-1&&!t;)t=c[o--].src}if(!t)throw new Error("Automatic publicPath is not supported in this browser");t=t.replace(/#.*$/,"").replace(/\?.*$/,"").replace(/\/[^\/]+$/,"/"),e.p=t})();const t=document.getElementById("boxBtn"),r=document.getElementById("headerBtn"),c=document.getElementById("box"),o=document.getElementById("header"),n=e.p+"f0c1cd433b981c1b71d4.png",l=e.p+"fac150a232c28ac1bc83.png";c.dataset.color="yellow",c.src=l,o.style.backgroundColor="green",t.addEventListener("click",(function(){"yellow"===c.dataset.color?(c.src=n,c.dataset.color="blue"):(c.src=l,c.dataset.color="yellow")})),r.addEventListener("click",(function(){const e=o.style.backgroundColor;o.style.backgroundColor="green"===e?"red":"green"}))})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	// The require scope
+/******/ 	var __webpack_require__ = {};
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+
+;// CONCATENATED MODULE: ./src/js/elements.js
+const boxBtn = document.getElementById('boxBtn');
+const headerBtn = document.getElementById('headerBtn');
+const boxEl = document.getElementById('box');
+const headerEl = document.getElementById('header');
+;// CONCATENATED MODULE: ./src/images/blue-robot.png
+const blue_robot_namespaceObject = __webpack_require__.p + "f0c1cd433b981c1b71d4.png";
+;// CONCATENATED MODULE: ./src/images/yellow-robot.png
+const yellow_robot_namespaceObject = __webpack_require__.p + "fac150a232c28ac1bc83.png";
+;// CONCATENATED MODULE: ./src/js/box.js
+
+
+
+function changeBoxColor() {
+  if (boxEl.dataset.color === 'yellow') {
+    boxEl.src = blue_robot_namespaceObject;
+    boxEl.dataset.color = 'blue';
+  } else {
+    boxEl.src = yellow_robot_namespaceObject;
+    boxEl.dataset.color = 'yellow';
+  }
+}
+boxEl.dataset.color = 'yellow';
+boxEl.src = yellow_robot_namespaceObject;
+;// CONCATENATED MODULE: ./src/js/header.js
+
+function changeHeaderColor() {
+  const currColor = headerEl.style.backgroundColor;
+  if (currColor === 'green') {
+    headerEl.style.backgroundColor = 'red';
+  } else {
+    headerEl.style.backgroundColor = 'green';
+  }
+}
+headerEl.style.backgroundColor = 'green';
+;// CONCATENATED MODULE: ./src/js/main.js
+
+
+
+
+boxBtn.addEventListener('click', changeBoxColor);
+headerBtn.addEventListener('click', changeHeaderColor);
+/******/ })()
+;

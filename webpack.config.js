@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 const path = require('path')
 
 module.exports = {
@@ -6,13 +8,13 @@ module.exports = {
   entry: './src/js/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.bundle.js',
-  },
+    filename: 'main.bundle.js'
+  }, 
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -25,16 +27,22 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-env', { targets: "defaults" }],
-            ],
-          },
-        },
-      },
+              ['@babel/preset-env', { targets: "defaults" }]
+            ]
+          }
+        }
+      }
+    ]
+  },
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin()
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-    })
-  ],
+      template: './src/index.html'
+    }),
+  ]
 }
