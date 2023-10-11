@@ -3,13 +3,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 const path = require('path')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
+const { GenerateSW } = require('workbox-webpack-plugin')
 
 module.exports = {
   mode: 'production',
   entry: './src/js/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.bundle.js'
+    filename: 'main.bundle.js',
+    publicPath: '',
   }, 
   module: {
     rules: [
@@ -49,19 +51,18 @@ module.exports = {
       name: "Robot Image Switcher",
       short_name: "Robot Switcher",
       description: "A cool app with different robot images.",
-      background_color: "pink",
+      background_color: 'pink',
+      theme_color: 'pink',
       display: 'standalone',
-      theme_color: "pink",
       icons: [
         {
           src: path.resolve('src/images/blue-robot.png'),
-          sizes: [96, 128, 192, 256, 300]
-        },
-        {
-          src: path.resolve('src/images/yellow-robot.png'),
-          sizes: [96, 128, 192, 256, 300]
-        },
-      ],
+          sizes: [96, 128, 192, 256, 300],
+        }
+      ]
     }),
+    new GenerateSW({
+      swDest: './sw.js'
+    })
   ]
 }
