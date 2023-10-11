@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 const path = require('path')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 module.exports = {
   mode: 'production',
@@ -43,6 +44,24 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html'
+    }),
+    new WebpackPwaManifest({
+      name: "Robot Image Switcher",
+      short_name: "Robot Switcher",
+      description: "A cool app with different robot images.",
+      background_color: "pink",
+      display: 'standalone',
+      theme_color: "pink",
+      icons: [
+        {
+          src: path.resolve('src/images/blue-robot.png'),
+          sizes: [96, 128, 192, 256, 300]
+        },
+        {
+          src: path.resolve('src/images/yellow-robot.png'),
+          sizes: [96, 128, 192, 256, 300]
+        },
+      ],
     }),
   ]
 }
