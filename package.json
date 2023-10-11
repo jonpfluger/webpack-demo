@@ -1,0 +1,27 @@
+{
+  "name": "webpack-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd client && npm run build\" \"cd server && npm run dev\"",
+    "start": "cd server && npm start",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonpfluger/webpack-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonpfluger/webpack-demo/issues"
+  },
+  "homepage": "https://github.com/jonpfluger/webpack-demo#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
